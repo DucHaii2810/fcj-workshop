@@ -5,15 +5,15 @@ weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
 
 ### Mục tiêu tuần 1:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hiểu các khái niệm cơ bản về điện toán đám mây và lợi ích của việc sử dụng Cloud.
+* Nắm rõ hạ tầng toàn cầu của AWS (Regions, Availability Zones, Data Centers, Edge Locations).
+* Tìm hiểu các công cụ quản lý AWS (Management Console, AWS CLI, SDK) và cách tối ưu hóa chi phí, làm việc với AWS Support.
+* Tạo tài khoản AWS, cấu hình bảo mật cơ bản và phân quyền quản trị.
+
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
