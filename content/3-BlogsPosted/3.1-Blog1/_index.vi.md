@@ -1,9 +1,9 @@
 ---
 title: "Blog 1"
-date: 2024-01-01
+date: 2026-01-01
 weight: 1
 chapter: false
-pre: " <b> 3.1. </b> "
+pre: "3.1"
 ---
 
 # EXPLORING AWS AMPLIFY: WHY IS IT A GREAT CHOICE FOR PERSONAL PROJECTS OR STUDENT ASSIGNMENTS?
