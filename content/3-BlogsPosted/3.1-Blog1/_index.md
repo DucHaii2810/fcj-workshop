@@ -6,7 +6,7 @@ chapter: false
 pre: "3.1"
 ---
 
-# EXPLORING AWS AMPLIFY: WHY IS IT A GREAT CHOICE FOR PERSONAL PROJECTS OR STUDENT ASSIGNMENTS?
+# Exploring aws amplify: Why is it a great choice for personal projects or students assignments?
 
 Whenever you work on a student assignment or build a personal project, you have probably experienced this scenario: finishing the user interface (Frontend) very quickly, only to spend a massive amount of time building the Backend, configuring the Database, integrating Sign-up/Sign-in flows, and deploying to a server.
 

@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 3.3. </b> "
 ---
 
-# BUILDING A SIMPLE, SECURE STATIC WEBSITE WITH S3 + CLOUDFRONT + ROUTE 53
+# Building a simple, secure static website with S3 + cloudfront + route 53
 
 Once you finish building a static website (plain HTML/CSS/JS or build artifacts from React, Vue, Next.js), the next challenge is choosing a solution to store and distribute it over the internet. Common goals include optimized cost, fast access speed, secure HTTPS support, and zero server management overhead.
 The trio of Amazon S3 + Amazon CloudFront + Route 53 is a standardized architecture that solves this problem cleanly and efficiently.
