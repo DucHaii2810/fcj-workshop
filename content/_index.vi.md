@@ -15,7 +15,7 @@ chapter: false
 
 &emsp; **Trường:** Đại học FPT
 
-&emsp; **Ngành:** Công nghệ thông tin
+&emsp; **Ngành:** An toàn thông tin
 
 &emsp; **Lớp:** AWS092026
 
