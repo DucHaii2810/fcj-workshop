@@ -1,12 +1,12 @@
 ---
 title: "Blog 1"
-date: 2026-01-01
+date: 2026-10-07
 weight: 1
 chapter: false
 pre: "3.1"
 ---
 
-# EXPLORING AWS AMPLIFY: WHY IS IT A GREAT CHOICE FOR PERSONAL PROJECTS OR STUDENT ASSIGNMENTS?
+# Exploring aws amplify: Why is it a great choice for personal projects or students assignments?
 
 Mỗi lần làm đồ án hay dựng project cá nhân, chắc hẳn nhiều bạn từng rơi vào cảnh: hoàn thiện giao diện (Frontend) rất nhanh, nhưng đến giai đoạn xây dựng Backend, cấu hình Database, tích hợp Đăng nhập/Đăng ký và deploy lên server thì mất rất nhiều thời gian.
 Để giải quyết vấn đề thiết lập hạ tầng phức tạp và giúp bạn tập trung hoàn toàn vào logic ứng dụng, AWS Amplify là giải pháp rất đáng cân nhắc.

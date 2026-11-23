@@ -1,125 +1,90 @@
 ---
 title: "Event 1"
-date: 2024-01-01
+date: 2026-09-26
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+# Bài thu hoạch “ Talkshow "The Thinking Behind Building The Bot" ”
 
 ### Mục Đích Của Sự Kiện
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+- Buổi talkshow mang đến góc nhìn thực tế về AI Agents và các ứng dụng tích hợp AI. Thay vì chỉ đào sâu vào khía cạnh công nghệ thuần túy, chương trình tập trung vào cách lập trình viên tư duy giải quyết bài toán thực tế khi xây dựng bot AI.   
 
+- Bên cạnh đó, đây là dịp để trao đổi cùng các kỹ sư dày dạn kinh nghiệm và lãnh đạo kỹ thuật, nắm bắt cách AI vận hành trong môi trường doanh nghiệp cũng như định hướng nghề nghiệp trong ngành công nghệ.   
 ### Danh Sách Diễn Giả
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+- **Thien Lu** – Program Manager, First Cloud AI Journey (FCAJ)   
+
+- **Truong Bui** – Tech Lead, CMC Global   
+
+- **Phong Pham** – Program Manager, First Cloud AI Journey (FCAJ)
 
 ### Nội Dung Nổi Bật
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+#### Hiểu đúng về AI Agents
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+- Chương trình làm rõ cách AI Agents mở rộng khả năng xử lý các tác vụ thực tế so với mô hình chatbot truyền thống. 
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+- Xây dựng một bot AI không chỉ dừng ở việc gọi API từ một model, đòi hỏi hiểu rõ bài toán cần giải quyết, cách người dùng tương tác và luồng xử lý - phản hồi thông tin của toàn hệ thống.
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+#### Bài toán lập trình gắn với thực tiễn
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+- Các chia sẻ kết nối lý thuyết AI với bối cảnh phát triển phần mềm thực tế, nhấn mạnh việc ưu tiên nhu cầu người dùng và mục tiêu nghiệp vụ trước khi chạy theo tính năng kỹ thuật. 
 
-#### Domain-Driven Design (DDD)
+- Một giải pháp AI hiệu quả cần xuất phát từ vấn đề cụ thể rồi mới xác định giá trị mà AI mang lại.
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+#### Tư duy đằng sau việc xây dựng một Bot
 
-#### Event-Driven Architecture
+Điểm đắt giá nhất của sự kiện nằm ở quy trình đặt câu hỏi trước khi chọn công nghệ:   
 
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
+- Bot cần giải quyết vấn đề gì?   
+- Ai là người sử dụng?   
+- Bot cần nguồn dữ liệu nào?   
+- Khả năng thực hiện của bot ra sao?   
+- Bot nên phản ứng thế nào trước các tình huống khác nhau?   
+- Hệ thống cần thiết kế ra sao để vận hành ổn định ngoài thực tế?   
 
-#### Compute Evolution
+Cách tiếp cận này giúp chuyển dịch tư duy từ "chỉ dùng AI" sang thiết kế một giải pháp hoàn chỉnh xoay quanh bài toán cốt lõi. 
 
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
+#### Góc nhìn từ doanh nghiệp
 
-#### Amazon Q Developer
+- Chia sẻ từ đại diện CMC Global cho thấy hệ thống AI cấp doanh nghiệp không chỉ cần chạy đúng chức năng mà còn phải đáp ứng độ tin cậy, bảo mật, khả năng mở rộng và tạo ra giá trị kinh doanh rõ ràng.
 
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+#### Định hướng nghề nghiệp và ngành công nghệ
+
+Phần giao lưu cuối buổi với đại diện CMC Global giúp làm rõ hơn kỳ vọng tuyển dụng, quy trình phỏng vấn và các năng lực cần trau dồi để làm việc trong mảng kỹ thuật phần mềm gắn với AI.
+
 
 ### Những Gì Học Được
 
-#### Tư Duy Thiết Kế
+#### Kỹ thuật:
+- AI Agents xử lý được các tác vụ phức tạp hơn chatbot thông thường; cần đặt model vào một quy trình ứng dụng hoàn chỉnh và đảm bảo tính ổn định, bảo mật, khả năng mở rộng cũng như bám sát nhu cầu người dùng.
 
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
+#### Tư duy giải quyết vấn đề:
+- Luôn bắt đầu từ bài toán và yêu cầu nghiệp vụ trước khi chọn dịch vụ AWS hay AI model; 
+- Chia nhỏ vấn đề phức tạp giúp việc thiết kế và triển khai mạch lạc hơn.
 
-#### Kiến Trúc Kỹ Thuật
+#### Nghề nghiệp
 
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
-
-#### Chiến Lược Hiện Đại Hóa
-
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
+- Làm AI cần sự tổng hòa giữa kiến thức AI, nền tảng kỹ thuật phần mềm, tư duy giải quyết vấn đề, thiết kế hệ thống và khả năng nắm bắt bài toán kinh doanh.
 
 ### Ứng Dụng Vào Công Việc
 
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
+Kiến thức từ buổi trò chuyện áp dụng trực tiếp vào dự án FCAJ xây dựng trợ lý AI hỗ trợ thông tin pháp lý và bảo mật cho doanh nghiệp. Trước đây, trọng tâm thường nghiêng về việc liệt kê các dịch vụ AWS như Amazon Bedrock, Amazon S3, AWS Lambda, API Gateway và DynamoDB. Sau sự kiện, bước ưu tiên hàng đầu là xác định rõ bài toán cần giải quyết.
 
-### Trải nghiệm trong event
+### Trải nghiệm sự kiện & Đúc kết
 
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
+- Học hỏi từ diễn giả: Tiếp thu góc nhìn thực chiến từ các leader và program manager giàu kinh nghiệm triển khai dự án công nghệ và AI.   
+- Phát triển AI thực tế: Gắn kết kiến thức AI đang học với quy trình phát triển phần mềm thực tế thay vì chỉ dừng ở lý thuyết.   
+- Tư duy kỹ thuật & giải quyết vấn đề: Củng cố thói quen lý giải lý do chọn công nghệ dựa trên yêu cầu thực tế của dự án FCAJ.   
+- Trao đổi nghề nghiệp: Hiểu thêm kỳ vọng của doanh nghiệp công nghệ, thúc đẩy rèn luyện song song chuyên môn kỹ thuật, kỹ năng trình bày giải pháp, giải quyết vấn đề và làm việc nhóm.  
 
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
-
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
-
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
-
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
-
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
+### Bài học rút ra
+Một ứng dụng AI hữu ích không nằm ở việc dùng model mạnh đến đâu, mà ở bài toán rõ ràng, luồng xử lý phù hợp, dữ liệu chuẩn xác, thiết kế hệ thống tốt và bám sát yêu cầu thực tế.
 
 #### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+
+![Event1_CMCglobal_1](Event1_CMCglobal_1.jpg)
+![Event1_CMCglobal_2](Event1_CMCglobal_2.jpg)

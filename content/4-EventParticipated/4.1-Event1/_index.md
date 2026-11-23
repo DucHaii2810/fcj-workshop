@@ -1,37 +1,31 @@
 ---
 title: "Event 1"
-date: 2024-01-01
+date: 2026-09-26
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+# Summary Report: “ Talkshow "The Thinking Behind Building The Bot" ”
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
 
 ### Event Objectives
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+- This talkshow offered a practical perspective on AI Agents and AI-driven applications. Rather than focusing solely on AI technology itself, the session explored how developers approach real-world problems when building AI-powered bots.   
+- It also gave attendees a chance to learn from seasoned engineers and technical leaders, see how AI operates in enterprise settings, and gain clearer career insights in the tech industry. 
 
 ### Speakers
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+- **Thien Lu** – Program Manager, First Cloud AI Journey (FCAJ)   
+- **Truong Bui** – Tech Lead, CMC Global   
+- **Phong Pham** – Program Manager, First Cloud AI Journey (FCAJ)  
 
 ### Key Highlights
 
-#### Identifying the drawbacks of legacy application architecture
+#### Understanding AI Agents
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+- The session unpacked how AI Agents go beyond traditional chatbots to handle more complex, real-world tasks. 
+- Building an AI bot is more than wiring an app to a model; it requires understanding the underlying problem, user interaction patterns, and how the system processes and responds to information.
 
 #### Transitioning to modern application architecture – Microservices
 

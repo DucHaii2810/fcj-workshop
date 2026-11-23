@@ -17,9 +17,9 @@ chapter: false
 
 &emsp; **University:** FPT University
 
-&emsp; **Major:** Information Technology
+&emsp; **Major:** Information Assurance
 
-&emsp; **Class:** 
+&emsp; **Class:** AWS092026
 
 &emsp; **Internship Company:** Amazon Web Services Viet Nam Company Limited
 
