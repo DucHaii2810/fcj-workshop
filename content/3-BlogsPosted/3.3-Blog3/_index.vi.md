@@ -5,27 +5,39 @@ weight: 1
 chapter: false
 pre: " <b> 3.3. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-# SESSION POLICIES TRONG AMAZON EKS POD IDENTITY
+# BUILDING A SIMPLE, SECURE STATIC WEBSITE WITH S3 + CLOUDFRONT + ROUTE 53
 
-Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+XÂY DỰNG TRANG WEB TĨNH ĐƠN GIẢN, BẢO MẬT VỚI S3 + CLOUDFRONT + ROUTE 53
+   
+   Khi hoàn thành một trang web tĩnh (HTML/CSS/JS thuần hoặc các bản build từ React, Vue, Next.js), bài toán tiếp theo là lựa chọn giải pháp lưu trữ và phân phối lên internet. Mục tiêu đặt ra thường là: chi phí tối ưu, tốc độ truy cập nhanh, hỗ trợ HTTPS an toàn và không tốn công quản lý server.
+   Bộ ba dịch vụ Amazon S3 + Amazon CloudFront + Route 53 là kiến trúc chuẩn chuẩn hóa giúp giải quyết bài toán này một cách tối ưu.
 
-Các điểm chính cần nắm:
+* Kiến trúc giải pháp & Các bước thực hiện
+  *  Bước 1: Lưu trữ tập tin với Amazon S3
 
-* Session policy là một IAM policy inline được chỉ định khi tạo hoặc cập nhật Pod Identity association.
-* Quyền hiệu quả = intersection (giao) giữa permissions của IAM role và session policy → session policy chỉ có thể thu hẹp, không thể mở rộng quyền.
-* Giúp tránh tình trạng over-permissioning khi reuse chung một IAM role cho nhiều workloads có nhu cầu khác nhau.
-* Hỗ trợ cả same-account và cross-account (qua IAM role chaining).
-* Giảm đáng kể số lượng IAM roles cần quản lý, tránh chạm giới hạn quota IAM trong cluster lớn.
-* Cấu hình dễ dàng qua AWS Management Console, AWS CLI hoặc AWS SDK khi tạo association giữa Kubernetes ServiceAccount và IAM role.
+        * Khởi tạo một S3 Bucket để chứa toàn bộ mã nguồn web tĩnh đã build.
 
-Tính năng này đặc biệt hữu ích khi bạn có nhiều ứng dụng chạy trên cùng một IAM role nhưng cần giới hạn quyền khác nhau (ví dụ: một pod chỉ đọc S3 bucket cụ thể, pod khác chỉ gọi một số API nhất định).
+        * Cấu hình S3 Bucket Policy và cấp quyền truy cập hợp lý.
+        * Bật tính năng Static website hosting để thiết lập file truy cập mặc định (ví dụ: index.html và 404.html).
+   * Bước 2: Tăng tốc & Bảo mật với Amazon CloudFront (CDN)
+        * Khởi tạo một CloudFront Distribution và trỏ nguồn (Origin) về S3 Bucket vừa tạo.
+        * Tăng tốc: Dữ liệu web được lưu bản sao (cache) tại các Edge Location trên toàn cầu, giúp giảm độ trễ tối đa cho người dùng.
+        * Bảo mật: Tích hợp chứng chỉ SSL/TLS miễn phí từ AWS Certificate Manager (ACM) để kích hoạt giao thức HTTPS. Đồng thời, cấu hình OAC (Origin Access Control) để chặn truy cập trực tiếp vào S3 Bucket từ bên ngoài, chỉ cho phép traffic đi qua CloudFront.
+    * Bước 3: Định tuyến tên miền với Amazon Route 53
+        * Tạo Hosted Zone cho tên miền cá nhân trên Route 53.
+        * Cấu hình bản ghi A Record (dạng Alias) để trỏ tên miền chính hoặc subdomain về địa chỉ CloudFront Distribution.
 
-...Hình ảnh...
+Giá trị kỹ thuật & Bài học rút ra
 
-...Link...
+    * Tối ưu chi phí: Kiến trúc Serverless hoàn toàn không tốn chi phí duy trì máy chủ (Nginx/Apache). Với lượng truy cập nhỏ hoặc các dự án cá nhân, chi phí hàng tháng gần như bằng 0.
+    * Khả năng mở rộng (Scalability): Mạng lưới CDN của CloudFront tự động xử lý khi lượng truy cập tăng đột biến mà không cần nâng cấp hạ tầng.
+    * Đơn giản hóa vận hành: Không cần bận tâm về việc vá lỗi hệ điều hành hay quản lý chứng chỉ SSL định kỳ.
+Tổng kết
 
-...Hướng dẫn...
+* Đây là một trong những bài thực hành kinh điển nhưng rất quan trọng, giúp bạn nắm vững tư duy kết hợp các dịch vụ cơ bản trên AWS để tạo nên một hệ thống hoàn chỉnh, bảo mật và chuẩn công nghiệp.
+
+
+![alt text](blog3.jpg)
+
+[...Link...](https://www.facebook.com/groups/awsstudygroupfcj/?multi_permalinks=2317669882331304&notif_id=1793105995816910&notif_t=feedback_reaction_generic&ref=notif)
