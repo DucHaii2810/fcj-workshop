@@ -3,7 +3,7 @@ title: "Blog 1"
 date: 2026-10-07
 weight: 1
 chapter: false
-pre: "<b> 3.1 </b>"
+pre: "<b> 3.1. </b>"
 ---
 
 # Exploring aws amplify: Why is it a great choice for personal projects or students assignments?
