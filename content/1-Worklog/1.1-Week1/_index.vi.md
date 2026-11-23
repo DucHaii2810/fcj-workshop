@@ -15,45 +15,38 @@ pre: " <b> 1.1. </b> "
 * Tạo tài khoản AWS, cấu hình bảo mật cơ bản và phân quyền quản trị.
 
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Các công việc cần triển khai trong tuần này:                       |
+
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| 2 | - Làm quen và nắm bắt lộ trình học tập của chương trình First Cloud Journey | 14/09/2026 | 15/09/2026 | AWS Study Group |
+| 3 | - Tìm hiểu về điện toán đám mây (Cloud Computing) và các lợi ích chính (tối ưu chi phí, linh hoạt tài nguyên, mở rộng toàn cầu) <br> - Tìm hiểu sự khác biệt của AWS: <br>&emsp; + Văn hóa lấy khách hàng làm trung tâm (Customer Obsession) <br>&emsp; + Leadership Principles <br>&emsp; + Chính sách giảm giá | 15/09/2026 | 15/09/2026 | YT: AWS Study Group Module 01-01 và Module 01-02 |
+| 4 | - Nghiên cứu hạ tầng toàn cầu của AWS: <br>&emsp; + Data Center <br>&emsp; + Availability Zone (AZ) <br>&emsp; + Edge Locations <br> - Tìm hiểu các công cụ quản lý của AWS: <br>&emsp; + AWS Management Console <br>&emsp; + AWS CLI <br>&emsp; + AWS SDK | 16/09/2026 | 16/09/2026 | Module 01-04 + Module 01-05 |
+| 5 | - Tìm hiểu phương pháp tối ưu hóa chi phí trên AWS: <br>&emsp; + On-Demand <br>&emsp; + Reserved Instances <br>&emsp; + Savings Plans <br>&emsp; + Spot Instances <br> - Tìm hiểu các gói AWS Support <br> - **Thực hành Lab:** <br>&emsp; + Tạo tài khoản AWS Free Tier <br>&emsp; + Xử lý các vấn đề xác thực tài khoản/thẻ thanh toán <br>&emsp; + Mở Support Case khi gặp lỗi kích hoạt | 17/09/2026 | 18/09/2026 | Module 01-06 + Module 01-07 |
+| 6 | - **Thực hành Lab:** <br>&emsp; + Thiết lập xác thực đa yếu tố (Virtual MFA) cho tài khoản Root <br>&emsp; + Tạo Admin Group, Admin User trên IAM và cấu hình quyền hạn <br>&emsp; + Đăng nhập bằng tài khoản IAM User và tạo/quản lý Access Keys <br>&emsp; + Cấu hình quản lý chi phí với AWS Budgets (Cost Budget theo template/custom và Usage Budget để kiểm soát tài nguyên) <br> - Nghiên cứu bổ sung về AWS Well-Architected Framework | 18/09/2026 | 19/09/2026 | 12 - 15 |
+
 
 
 ### Kết quả đạt được tuần 1:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Hiểu định nghĩa điện toán đám mây của AWS và các lợi ích vượt trội so với hạ tầng truyền thống (On-premises).
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Nắm vững cấu trúc hạ tầng mạng lưới toàn cầu của AWS bao gồm:
+  * Regions
+  * Availability Zones (cụm trung tâm dữ liệu độc lập)
+  * Edge Locations (hệ thống phân phối nội dung)
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Phân biệt được các công cụ quản lý AWS (Management Console, CLI, SDK) và nắm được các mô hình thanh toán giúp tối ưu hóa chi phí (On-Demand, Reserved Instances, Savings Plans, Spot).
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Đăng ký và kích hoạt thành công tài khoản AWS cá nhân; biết cách xử lý sự cố xác thực tài khoản, số điện thoại, thẻ thanh toán và tạo Support Case khi cần thiết.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Hoàn thành cấu hình bảo mật tài khoản với Virtual MFA để bảo vệ tài khoản Root.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+* Thành thạo việc sử dụng IAM để:
+  * Tạo User Group và phân quyền Admin Policy
+  * Tạo IAM User
+  * Quản lý Access Key an toàn
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Biết cách thiết lập AWS Budgets để đặt ngưỡng cảnh báo chi phí và thời gian sử dụng qua Email, giúp tránh phát sinh chi phí ngoài ý muốn khi thực hành.
 
-
+* Làm quen với phương pháp tự đánh giá kiến trúc hệ thống qua AWS Well-Architected.
