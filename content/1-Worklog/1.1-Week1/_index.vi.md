@@ -1,6 +1,6 @@
 ---
 title: "Worklog Tuần 1"
-date: 2024-01-01
+date: 2026-09-14
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
@@ -29,24 +29,12 @@ pre: " <b> 1.1. </b> "
 
 ### Kết quả đạt được tuần 1:
 
-* Hiểu định nghĩa điện toán đám mây của AWS và các lợi ích vượt trội so với hạ tầng truyền thống (On-premises).
-
-* Nắm vững cấu trúc hạ tầng mạng lưới toàn cầu của AWS bao gồm:
-  * Regions
-  * Availability Zones (cụm trung tâm dữ liệu độc lập)
-  * Edge Locations (hệ thống phân phối nội dung)
-
-* Phân biệt được các công cụ quản lý AWS (Management Console, CLI, SDK) và nắm được các mô hình thanh toán giúp tối ưu hóa chi phí (On-Demand, Reserved Instances, Savings Plans, Spot).
-
-* Đăng ký và kích hoạt thành công tài khoản AWS cá nhân; biết cách xử lý sự cố xác thực tài khoản, số điện thoại, thẻ thanh toán và tạo Support Case khi cần thiết.
-
-* Hoàn thành cấu hình bảo mật tài khoản với Virtual MFA để bảo vệ tài khoản Root.
-
-* Thành thạo việc sử dụng IAM để:
-  * Tạo User Group và phân quyền Admin Policy
-  * Tạo IAM User
-  * Quản lý Access Key an toàn
-
-* Biết cách thiết lập AWS Budgets để đặt ngưỡng cảnh báo chi phí và thời gian sử dụng qua Email, giúp tránh phát sinh chi phí ngoài ý muốn khi thực hành.
-
-* Làm quen với phương pháp tự đánh giá kiến trúc hệ thống qua AWS Well-Architected.
+- Hiểu định nghĩa điện toán đám mây của AWS và các lợi ích vượt trội so với hạ tầng truyền thống (On-premiss).
+- Nắm vững cấu trúc hạ tầng mạng lưới toàn cầu của AWS bao gồm các vùng, cụm trung tâm dữ liệu độc lập và hệ thống phân phối nội dung.
+- Phân biệt được các công cụ quản lý AWS (Management Console, CLI, SDK)  và nắm được các mô hình thanh toán giúp tối ưu hóa chi phí (On-Demand, Reserved Instances, Savings Plans, Spot). 
+- Đăng kí và kích hoạt thành công tài khoản AWS cá nhân; biết cách xử lý sự cố xác thực tài khoản, số điện thoại, thẻ thnh toán và tạp Support Case khi cần thiết.
+- Hoàn thành cấu hình bảo mật tài khoản với Virtual MFA để bảo vệ tài khoản.
+- Thành thạo việc sử dụng IAM để tạo User Group, phân quyền Admin Policy, tạo IAM User và quản lý Access Key an toàn.
+- Biết cách thiết lập AWS Budgets để đặt ngưỡng cảnh bảo chi phí và thời gian sử dụng qua Email, giúp tránh phát sinh chi phí ngoài ý muốn khi thực hành.
+- Làm quen với phương pháp tự đánh giá kiến trúc hệ thống qua AWS Well-Architected.
+ 

@@ -1,59 +1,30 @@
 ---
 title: "Worklog Tuần 9"
-date: 2024-01-01
+date: 2026-11-09
 weight: 1
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
 ### Mục tiêu tuần 9:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Tăng cường an toàn cho hệ thống và thiết lập giám sát.
+- Kiểm tra chất lượng câu trả lời và độ chính xác của nội dung pháp lý.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| 2 | Cấu hình throttling cho stage v1. Gửi nhiều request liên tiếp để xác nhận API trả về HTTP 429. | 09/11/2026 | 09/11/2026 | AWS Docs: API Gateway |
+| 3 | Đặt thời gian lưu log CloudWatch là 7 ngày. Xem metric của Lambda, tạo alarm cho lỗi và nhận thông báo qua SNS email. | 10/11/2026 | 10/11/2026 | AWS Docs: CloudWatch |
+| 4 | Chạy bộ câu hỏi kiểm thử gồm prompt injection và câu hỏi ngoài phạm vi. Chỉnh lại system prompt và từ khóa theo kết quả. | 11/11/2026 | 11/11/2026 | Groq Docs |
+| 5 | Đối chiếu các điều luật trong DynamoDB với văn bản chính thức. Tìm hiểu các luật mới (như Luật Bảo vệ dữ liệu cá nhân 2025) và ghi chú ảnh hưởng. | 12/11/2026 | 12/11/2026 |  |
+| 6 | Lập bảng ước tính chi phí bằng AWS Pricing Calculator. Liệt kê các biện pháp tối ưu chi phí. | 13/11/2026 | 13/11/2026 | AWS Pricing Calculator |
 
 ### Kết quả đạt được tuần 9:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
+- Cấu hình throttling và xác nhận API trả 429 khi bị gọi quá nhiều.
+- Thiết lập được log retention và alarm cảnh báo lỗi Lambda qua email.
+- Kiểm thử prompt injection, cải thiện system prompt theo kết quả.
+- Xác minh nội dung pháp lý và nắm được thay đổi về luật mới.
+- Hoàn thành bản ước tính chi phí và danh sách biện pháp tối ưu.
 

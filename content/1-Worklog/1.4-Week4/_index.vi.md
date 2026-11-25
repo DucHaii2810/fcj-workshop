@@ -1,59 +1,30 @@
 ---
 title: "Worklog Tuần 4"
-date: 2024-01-01
+date: 2026-10-05
 weight: 1
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
 ### Mục tiêu tuần 4:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Thực hành sâu với Lambda, API Gateway, CloudWatch và DynamoDB.
+- Xây dựng một API serverless nhỏ hoàn chỉnh từ đầu đến cuối.
+- Tìm hiểu cân bằng tải và Auto Scaling để so sánh với hướng serverless.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| 2 | Tìm hiểu kỹ Lambda: runtime Python, handler, biến môi trường, memory và timeout. Thực hành đọc log của Lambda. | 05/10/2026 | 05/10/2026 | AWS Docs: Lambda |
+| 3 | So sánh REST API và HTTP API trong API Gateway. Tạo HTTP API tích hợp Lambda, tim hiểu route, stage và CORS. | 06/10/2026 | 06/10/2026 | AWS Docs: API Gateway |
+| 4 | Tạo bảng DynamoDB, thực hành put, get, scan, query bằng console và boto3. Gắn quyền tối thiểu cho Lambda khi truy cập DynamoDB. | 07/10/2026 | 07/10/2026 | AWS Docs: DynamoDB |
+| 5 | Tìm hiểu CloudWatch: log group, thời gian lưu log, metric Invocations/Errors/Duration. Tạo alarm cho lỗi Lambda và gửi thông báo qua SNS email. | 08/10/2026 | 08/10/2026 | AWS Docs: CloudWatch |
+| 6 | Làm lab nhỏ Lambda + API Gateway + DynamoDB, test bằng curl rồi dọn tài nguyên. Tìm hiểu ELB và EC2 Auto Scaling ở mức khái niệm để so sánh với kiến trúc serverless. | 09/10/2026 | 09/10/2026 | AWS Docs: Elastic Load Balancing |
 
 ### Kết quả đạt được tuần 4:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+- Cấu hình được Lambda với biến môi trường, memory, timeout và đọc được log.
+- Tạo HTTP API tích hợp Lambda, hiễu route, stage, CORS.
+- Đọc/ghi dữ liệu DynamoDB bằng boto3 với quyền tối thiểu.
+- Tạo được CloudWatch alarm và nhận cảnh báo qua email.
+- Hoàn thành lab API serverless, hiểu sự khác nhau giữa serverless và mô hình EC2 + load balancer.

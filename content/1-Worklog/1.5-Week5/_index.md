@@ -1,57 +1,29 @@
 ---
 title: "Week 5 Worklog"
-date: 2024-01-01
+date: 2026-10-12
 weight: 1
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
-
 ### Week 5 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+- Choose a workshop topic and define the project scope.
+- Select appropriate AWS architecture and services fitting Free Tier costs.
+- Write the first draft of the Proposal.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Tasks to be implemented this week:
 
+| Day | Task | Start Date | Completion Date | Reference Source |
+| --- | --------- | ------------ | --------------- | -------------- |
+| 2 | Re-read Workshop and Proposal requirements. Propose a topic with the team: legal and security AI assistant under Decree 13/2023/ND-CP. Define scope and target users. | 12/10/2026 | 12/10/2026 |  |
+| 3 | Learn about RAG, compare Amazon Bedrock with external APIs (Groq). Compare keyword search and vector search, choose an approach fitting the budget. | 13/10/2026 | 13/10/2026 | Groq Docs |
+| 4 | Weigh the EC2 + RDS + load balancer option against the serverless option, choose serverless due to low cost and low operational overhead. List services to use and reasons for choosing each service. | 14/10/2026 | 14/10/2026 | AWS Docs: Well-Architected Framework |
+| 5 | Draw architecture diagram and step-by-step data flow. Write the Executive Summary and Problem Statement sections of the Proposal. | 15/10/2026 | 15/10/2026 | drawio.com |
+| 6 | Write Technical Implementation, Timeline, Budget, Risks, and Expected Outcomes sections. Send draft to mentor and teammates for feedback. | 16/10/2026 | 16/10/2026 |  |
 
-### Week 5 Achievements:
+### Achieved results of Week 5:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Finalized the topic and scope of the project.
+- Decided to use keyword-based RAG combined with Groq as the LLM provider.
+- Understood why serverless architecture is more suitable than the EC2 + RDS model for this project.
+- Completed the architecture diagram, data flow, and first Proposal draft.

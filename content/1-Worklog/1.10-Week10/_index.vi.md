@@ -1,59 +1,30 @@
 ---
 title: "Worklog Tuần 10"
-date: 2024-01-01
+date: 2026-11-16
 weight: 2
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
 ### Mục tiêu tuần 10:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Xây dựng giao diện chat và kiểm thử end-to-end.
+- Hoàn thiện Proposal, Workshop và Worklog.
+- Dọn dẹp toàn bộ tài nguyên đã tạo.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| 2 | Viết index.html: khung chat, lưu ý miễn trừ, trạng thái xử lý và thông báo lỗi. Gọi API bằng fetch. | 16/11/2026 | 16/11/2026 | AWS Docs: API Gateway |
+| 3 | Tạo S3 bucket, bật static website hosting với bucket policy chỉ cho phép đọc. Upload index.html, cập nhật URL API và test end-to-end. Chụp ảnh màn hình và quay video demo. | 17/11/2026 | 17/11/2026 | AWS Docs: S3 |
+| 4 | Viết Workshop: các bước có thể làm lại, lý do chọn từng dịch vụ và đối chiếu Well-Architected. Che account ID, key và URL trong ảnh chụp. | 18/11/2026 | 18/11/2026 | AWS Docs: Well-Architected Framework |
+| 5 | Hoàn thiện Proposal và Workshop, sửa các chỗ chưa thống nhất như Region, tên resource. Hoàn thành Worklog, xem lại yêu cầu Self-Assessment và Blog. | 19/11/2026 | 19/11/2026 |  |
+| 6 | Dọn tài nguyên theo thứ tự: S3, API Gateway, Lambda và log group, DynamoDB, IAM role/policy, Groq API key. Kiểm tra Cost Explorer và Billing để chắc chắn không phát sinh phí. | 20/11/2026 | 20/11/2026 | AWS Docs: Cost Explorer và Billing |
 
 ### Kết quả đạt được tuần 10:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
+- Triển khai giao diện chat trên S3 và gọi được backend.
+- Hoàn thành kiểm thử end-to-end và có ảnh chụp, video demo.
+- Hoàn thiện Proposal, Workshop và Worklog.
+- Dọn sạch tài nguyên và xác nhận không còn chi phí phát sinh.
 

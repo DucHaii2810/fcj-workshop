@@ -1,59 +1,28 @@
 ---
 title: "Worklog Tuần 8"
-date: 2024-01-01
+date: 2026-11-02
 weight: 1
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
 ### Mục tiêu tuần 8:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Xây dựng và kiểm thử backend gồm Lambda, Groq API và API Gateway.
+- Chuẩn hóa việc xử lý lỗi và rà soát bảo mật.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| 2 | Tạo Lambda legal-ai-chat-lambda (Python 3.12) với execution role, đặt timeout 30 giây và biến môi trường GROQ_API_KEY. Viết hàm retrieve_legal_context để chọn điều luật theo từ khóa. | 02/11/2026 | 02/11/2026 | AWS Docs: Lambda |
+| 3 | Viết phần ghép prompt và gọi Groq API. Tạo HTTP API LegalChatAPI với route POST /chat, bật CORS và deploy stage v1. | 03/11/2026 | 03/11/2026 | AWS Docs: API Gateway |
+| 4 | Test bằng curl với câu hỏi mẫu, câu hỏi rỗng (400) và câu hỏi ngoài phạm vi. Xem log CloudWatch của từng request. | 04/11/2026 | 04/11/2026 | AWS Docs: CloudWatch |
+| 5 | Thêm kiểm tra đầu vào và chuẩn hóa mã lỗi 400, 429, 502, 504, 500. Sửa các lỗi phát hiện được trong quá trình test. | 05/11/2026 | 05/11/2026 | AWS Docs: Lambda |
+| 6 | Rà soát bảo mật: không ghi log câu hỏi người dùng, bảo vệ API key, giữ quyền tối thiểu. Ghi lại các điểm cần cải thiện cho giai đoạn sau. | 06/11/2026 | 06/11/2026 | AWS Docs: Well-Architected Framework |
 
 ### Kết quả đạt được tuần 8:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+- Hoàn thành logic RAG trong Lambda và gọi được Groq API.
+- Đưa backend ra ngoài qua API Gateway với CORS.
+- Test được cả trường hợp thành công lẫn các trường hợp lỗi bằng curl.
+- Chuẩn hóa mã lỗi và rà soát bảo mật cho backend.

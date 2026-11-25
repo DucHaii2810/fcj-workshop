@@ -74,3 +74,4 @@ Chẳng hạn, khi người dùng doanh nghiệp nhập tình huống pháp lý 
 Công nghệ Cloud và AI nên được nhìn nhận như công cụ giải quyết vấn đề thực tế chứ không phải dùng chỉ vì tính mới mẻ. Điều này giúp định hướng dự án FCAJ thực tế hơn: nắm rõ bài toán và yêu cầu trước, sau đó mới thiết kế kiến trúc và chọn dịch vụ AWS phù hợp.
 
 #### Some event photos
+
