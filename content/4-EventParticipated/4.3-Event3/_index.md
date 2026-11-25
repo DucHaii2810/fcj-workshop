@@ -5,122 +5,74 @@ weight: 1
 chapter: false
 pre: " <b> 4.3. </b> "
 ---
-
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
-
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+# Event Report: “AWS Cloud Architecture, Software Factories, and Career Growth”
 
 ### Event Objectives
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+- The event offered a well-rounded look at modern cloud architecture, spotlighting serverless computing and asynchronous system design.
+- Moving beyond pure theory, the sessions shared practical lessons from building "software factories" at enterprise scale.
+- It also gave attendees a chance to learn from seasoned practitioners on preparing for a cloud career, closing the gap between university curricula and industry expectations, and navigating technical internships alongside open-source contributions.
 
-### Speakers
+### Speakers List
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+- **Thinh Nguyen** – SYL Solution
+- **Henry Duc Bui** – CloudThinker
+- **Hung Tran** – NAB
+- **Dao Luong** – FCAJ
+- **Khang Duong** – FCAJ
+- **Tuan Tran** – FCAJ
 
 ### Key Highlights
 
-#### Identifying the drawbacks of legacy application architecture
+#### Building Software Factories at Scale
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+The program opened with practical takeaways on running "software factories." The discussion unpacked common bottlenecks teams encounter when scaling software delivery, emphasizing that operating at scale demands more than clean code—it requires standardized workflows, automation, and battle-tested practices from enterprise engineering teams.
 
-#### Transitioning to modern application architecture – Microservices
+#### Bridging the Education and Industry Gap
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+The education-focused session highlighted what students should prepare before stepping into the cloud workforce. It underscored that academic foundations must go hand in hand with hands-on technical skills to align university training with real business demands.
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+#### Rethinking Serverless with AWS Lambda
 
-#### Domain-Driven Design (DDD)
+One of the standout technical deep dives explored **AWS Lambda Web Functions**, explaining how native HTTP support and 128-request multi-concurrency are reshaping serverless compute. The session demonstrated how removing adapter overhead and leveraging **Active CPU Billing** maximize cost efficiency, backed by live performance benchmarks comparing Serverless against Docker workloads on EC2 and ECS.
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+#### Building Asynchronous Systems with Amazon SQS
 
-#### Event-Driven Architecture
+The **Amazon SQS** session tied architectural theory to practical system design, illustrating why modern applications lean on asynchronous processing to decouple services and scale smoothly. Speakers shared concrete design patterns and actionable tips for integrating SQS in production workloads.
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+#### Career Growth: Internships and Open Source
 
-#### Compute Evolution
-
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
-
-#### Amazon Q Developer
-
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+The second half of the event centered on career progression. Hearing firsthand about a 3-month AWS internship—and how cloud services were applied to real projects—provided practical guidance. In addition, the open-source session walked through making a first contribution from scratch, building a consistent habit, and using open-source work to accelerate technical growth.
 
 ### Key Takeaways
 
-#### Design Mindset
+- **Technical Perspective:** Serverless architecture is advancing rapidly, with AWS Lambda features like multi-concurrency and Active CPU Billing delivering major gains in performance and cost efficiency. Meanwhile, scalable cloud systems depend on decoupled designs powered by tools like Amazon SQS, and building at scale relies on standardized "software factory" practices rather than isolated coding.
+- **System Design Mindset:** The core architectural takeaway was choosing the right compute and messaging model up front. Before deploying an API or background job, developers should decide whether a workload belongs in a synchronous path (optimized Lambda functions) or an asynchronous flow (decoupled via SQS queues) to prevent bottlenecks and maintain reliability.
+- **Career Perspective:** Breaking into the cloud industry takes proactive preparation. While technical proficiency is essential, hands-on experience—built through internships, practical AWS projects, and steady open-source contributions—is what sets candidates apart.
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+### Applying to the FCAJ Project
 
-#### Technical Architecture
+Insights from this event translate directly into my FCAJ project, where I am developing an **AWS Serverless Legal RAG Assistant**.
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+Prior to attending, I had already provisioned the core stack using **Amazon Bedrock Knowledge Bases**, **API Gateway**, **DynamoDB**, and a **React** frontend hosted on **S3**. However, the Lambda and SQS sessions sparked concrete ideas to refine the architecture:
 
-#### Modernization Strategy
+- **Applying AWS Lambda Optimizations:** My `legal-ai-chat-lambda` function currently processes incoming requests from API Gateway. Understanding multi-concurrency and Active CPU Billing helps me tune execution times and keep costs predictable when multiple users query the assistant concurrently.
+- **Applying Amazon SQS for Document Processing:** Currently, legal documents land in my `fcaj-raw-docs` S3 bucket before being chunked. The SQS session inspired decoupling this ingestion pipeline by placing an **Amazon SQS** queue between S3 and the processing service. Handling document ingestion asynchronously ensures the system can absorb large batches of legal files gracefully without throttling or failing.
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
-
-### Applying to Work
-
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+> This event shifted my focus from simply "getting the API to work" to "architecting a resilient, decoupled, and cost-effective serverless system."
 
 ### Event Experience
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+- **Learning from Experienced Speakers:** Hearing directly from engineers who have built large-scale production systems clarified how services like Lambda and SQS are applied in enterprise settings beyond introductory tutorials.
+- **Understanding Real-World Architecture:** Rather than merely listing service features, live benchmarks and design patterns demonstrated why specific architectural choices are made to solve scalability and cost challenges in production.
+- **Career Motivation:** The internship and open-source talks motivated me to look beyond my FCAJ project, start building a public contribution portfolio, and strengthen my collaboration skills for industry work.
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+### Most Important Lesson
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
-
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
-
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
-
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+Building dependable cloud software requires pairing efficient compute (**Lambda**) with resilient messaging (**SQS**). A well-rounded cloud engineer must master not only technical implementation, but also a continuous learning habit grounded in real-world projects and open-source collaboration. This mindset will guide me as I refine my Legal RAG Assistant and grow my career.
 
 #### Some event photos
-*Add your event photos here*  
-
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+![alt text](Event3_FCAJComunityday_1.jpg) 
+![alt text](Event3_FCAJComunityday_2.jpg) 
+![alt text](Event3_FCAJComunityday_3.jpg) 
+![alt text](Event3_FCAJComunityday_4.jpg)

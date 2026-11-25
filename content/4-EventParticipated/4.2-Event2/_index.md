@@ -7,117 +7,72 @@ pre: " <b> 4.2. </b> "
 ---
 
 
-# Summary Report: “AWS Cloud Day and AI Day Hanoi - Watch Party”
+# Event Report: “AWS Cloud Day and AI Day Hanoi - Watch Party"
 
 ### Event Objectives
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+- AWS Cloud and AI Day Hanoi is a one-day event designed to bring AWS expertise, cloud technologies, and AI innovations directly to developers, IT professionals, business leaders, and technology enthusiasts.
+- The program focuses on helping participants see how cloud computing and AI solve practical business and technical problems, centering on key topics such as Agentic AI, data analytics, cloud migration, industry solutions, and modern application development.
+- The event also opens opportunities to learn directly from AWS experts, explore real-world customer experiences, and stay updated on current Cloud and AI technology trends.
 
-### Speakers
+### Speakers List
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+- **H.E. Jennifer Wicks** – U.S. Ambassador to Vietnam
+- **Dr. Werner Vogels** – CTO, Amazon.com
+- **Eric Yeo** – Country General Manager Malaysia, Vietnam, Indochina, AWS
+- **Mai Le** – Director of Product Management, Katalon
+- **Dr. Jens Lottner** – Chief Executive Officer, Techcombank
 
 ### Key Highlights
 
-#### Identifying the drawbacks of legacy application architecture
+#### Agentic AI
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+Agentic AI is one of the highlights of the program, opening up a new development direction for AI applications. This topic helps build a broader view of how AI moves beyond simple question-and-answer interactions to participate in systems that help users complete more complex tasks.
 
-#### Transitioning to modern application architecture – Microservices
+#### Data Analytics
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+The event emphasizes the foundational role of data in modern cloud applications. Data is an important launchpad for AI and enterprise applications; organizations need appropriate ways to collect, process, analyze, and leverage data before effectively harnessing AI technologies.
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+#### Cloud Migration
 
-#### Domain-Driven Design (DDD)
+The content on Cloud Migration shares how organizations move existing infrastructure and applications to the Cloud while balancing scalability, cost, reliability, and modernization. This process is not merely lifting and shifting a system from physical servers to AWS, but also a time to consider modernizing applications during migration.
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+#### Modern Application Development
 
-#### Event-Driven Architecture
+The program introduces modern approaches to building applications on the Cloud platform. Modern applications need to aim for scalability, flexibility, availability, and resource optimization — principles that are very helpful for learning AWS and choosing the right services for a project.
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+#### Industry Solutions
 
-#### Compute Evolution
-
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
-
-#### Amazon Q Developer
-
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+Stories from organizations and businesses applying Cloud and AI in practice show that AWS technologies do not stop at technical experimentation, but directly solve operational problems across different industries.
 
 ### Key Takeaways
 
-#### Design Mindset
+- Cloud and AI are closely connected: Cloud computing builds the foundation for AI applications in compute capacity, data storage, networking, security, and elastic infrastructure, helping businesses build and deploy AI more effectively.
+- Start from the business problem: Before choosing AWS services or AI technologies, it is necessary to clarify the problem to solve, target users, required data, system goals, as well as technical and business constraints.
+- Modernization goes beyond migration: Cloud migration is an opportunity to upgrade applications through managed services, serverless technologies, modern architectures, and AI when appropriate, instead of keeping the old architecture in a new environment.
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+### Applying to the FCAJ Project
 
-#### Technical Architecture
+Knowledge from AWS Cloud and AI Day Hanoi applies directly to the FCAJ project building an AI assistant for enterprise legal and security information. The event reinforces the principle of defining the business problem first before selecting AWS services.
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+For example, when an enterprise user enters a legal or security situation, the system will rely on the internal knowledge base to generate an appropriate response. From that requirement, a corresponding AWS architecture can be shaped:
+- Amazon S3 → store internal documents and knowledge sources
+- Amazon Bedrock → provide AI capabilities and foundation models
+- AWS Lambda → execute application logic
+- Amazon API Gateway → provide APIs for the application
+- Amazon DynamoDB → store application data and conversation history
 
-#### Modernization Strategy
-
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
-
-### Applying to Work
-
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+>In addition, because organizational data can be sensitive, system design needs to emphasize security, scalability, and responsible use of enterprise data.
 
 ### Event Experience
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+- Learning from AWS experts: Get updated on the Cloud and AI landscape directly from AWS experts and industry leaders, gaining multiple perspectives from technology and business to product development.
+- Exploring current AI trends: Discussions around Agentic AI show that AI is shifting from a chatbot/Q&A tool to becoming a link in the overall application workflow.
+- Understanding enterprise Cloud adoption: Practical insights from Techcombank and Katalon show that deploying Cloud and AI is also tied to business value, security, scalability, cost, and impact on existing systems.
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
-
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
-
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
-
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
-
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+### Most Important Lesson:
+Cloud and AI technologies should be viewed as tools for solving real-world problems rather than used simply because of novelty. This helps orient the FCAJ project more practically: grasp the problem and requirements first, then design the architecture and choose suitable AWS services.
 
 #### Some event photos
-*Add your event photos here*  
-
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+![Event2_AIcloudday_1](Event2_AIcloudday_1.jpg)
+![Event2_AIcloudday_2](Event2_AIcloudday_2.jpg)
