@@ -42,4 +42,4 @@ AWS Amplify is an effective solution that streamlines the development workflow a
 
 ![alt text](Blog1.jpg)
 
-[...Link...](https://www.facebook.com/groups/awsstudygroupfcj/?multi_permalinks=2298180120946947&notif_id=1791348739135855&notif_t=feedback_reaction_generic&ref=notif)
+[Link to the post on AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj/?multi_permalinks=2298180120946947&notif_id=1791348739135855&notif_t=feedback_reaction_generic&ref=notif)

@@ -40,4 +40,4 @@ Dưới đây là các thiết lập và lưu ý quan trọng giúp quản lý n
 Tổng kết
    *    Tối ưu và kiểm soát chi phí là một phần không thể thiếu trong tư duy làm việc với Cloud Computing. Thiết lập hạ tầng an toàn ngay từ đầu sẽ giúp bạn thoải mái học tập và thử nghiệm các dịch vụ AWS mà không phải lo lắng về vấn đề chi phí.
 
-[...Link... ](https://www.facebook.com/groups/awsstudygroupfcj/posts/2317495209015438/?notif_id=1793075766463069&notif_t=group_post_approved&ref=notif)
+[Link to the post on AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj/posts/2317495209015438/?notif_id=1793075766463069&notif_t=group_post_approved&ref=notif)

@@ -44,4 +44,4 @@ Below are the essential setups and considerations to help you manage your budget
 Summary
 - Optimizing and controlling costs is an indispensable part of the Cloud Computing mindset. Setting up safe guardrails from the start allows you to comfortably learn and experiment with AWS services without worrying about unexpected bills.
 
-[...Link... ](https://www.facebook.com/groups/awsstudygroupfcj/posts/2317495209015438/?notif_id=1793075766463069&notif_t=group_post_approved&ref=notif)
+[Link to the post on AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj/posts/2317495209015438/?notif_id=1793075766463069&notif_t=group_post_approved&ref=notif)

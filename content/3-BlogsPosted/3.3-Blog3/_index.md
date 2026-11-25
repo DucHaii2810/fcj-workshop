@@ -38,4 +38,4 @@ Summary
 
 ![alt text](blog3.jpg)
 
-[...Link...](https://www.facebook.com/groups/awsstudygroupfcj/?multi_permalinks=2317669882331304&notif_id=1793105995816910&notif_t=feedback_reaction_generic&ref=notif)
+[Link to the post on AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj/?multi_permalinks=2317669882331304&notif_id=1793105995816910&notif_t=feedback_reaction_generic&ref=notif)
