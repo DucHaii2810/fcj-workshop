@@ -1,99 +1,91 @@
 ---
-title : "VPC Endpoint Policies"
+title : "Frontend – S3 Static Website"
 date : 2024-01-01
 weight : 5
 chapter : false
 pre : " <b> 5.5. </b> "
 ---
 
-When you create an interface or gateway endpoint, you can attach an endpoint policy to it that controls access to the service to which you are connecting. A VPC endpoint policy is an IAM resource policy that you attach to an endpoint. If you do not attach a policy when you create an endpoint, AWS attaches a default policy for you that allows full access to the service through the endpoint.
+### Overview
 
-You can create a policy that restricts access to specific S3 buckets only. This is useful if you only want certain S3 Buckets to be accessible through the endpoint.
+| Item | Details |
+| --- | --- |
+| **Purpose** | Chat page for users to ask questions and read answers. |
+| **AWS Services** | Amazon S3 (static website hosting) |
+| **Inputs** | User question |
+| **Outputs** | Answer displayed in the chat box |
+| **Dependencies** | Backend API URL |
 
-In this section you will create a VPC endpoint policy that restricts access to the S3 bucket specified in the VPC endpoint policy.
+### 5.5.1 Building the Chat Interface (index.html)
 
-![endpoint diagram](/images/5-Workshop/5.5-Policy/s3-bucket-policy.png)
+**Objective**
+A single static page calling the backend using `fetch`.
 
-#### Connect to an EC2 instance and verify connectivity to S3
+**Steps**
+1. Build the chat layout: title, status badge, greeting, message list, input box, and send button.
+2. When submitted, call `fetch` via HTTP `POST` to the API URL and show a processing state.
+3. Display clear messages for errors (`400`, `429`, `502`/`504`).
+4. Recommendation: add a disclaimer showing that answers are preliminary, not legal advice.
+![alt text](5-5-01.png)
 
-1. Start a new AWS Session Manager session on the instance named Test-Gateway-Endpoint. From the session, verify that you can list the contents of the bucket you created in Part 1: Access S3 from VPC:
+**Verification**
+Opening `index.html` locally displays the chat page and greeting.
 
-```
-aws s3 ls s3://\<your-bucket-name\>
-```
-![test](/images/5-Workshop/5.5-Policy/test1.png)
+### 5.5.2 Hosting the Page on S3
 
-The bucket contents include the two 1 GB files uploaded in earlier.
+**Objective**
+Expose `index.html` publicly as a static website.
 
-2. Create a new S3 bucket; follow the naming pattern you used in Part 1, but add a '-2' to the name. Leave other fields as default and click create
+**Steps**
+1. Create the `ai-legal-assistant-frontend-hau` bucket in `ap-southeast-2`.
+2. Upload `index.html`.
+3. Enable **Static website hosting** with `index.html` as the index document.
+4. Allow public read access specifically for this bucket (disable **Block Public Access** for it and add a read-only bucket policy).
+5. Open the website endpoint.
 
-![create bucket](/images/5-Workshop/5.5-Policy/create-bucket.png)
+**Console Walkthrough Details**
+- **1:** Create an S3 bucket in the `ap-southeast-2` region, type **General purpose**, and enter the bucket name.
+![alt text](5-5-02.png)
 
-Successfully create bucket
+- **2:** Uncheck **Block all public access** for this bucket only and confirm the warning.
+![alt text](5-5-03.png)
 
-![Success](/images/5-Workshop/5.5-Policy/create-bucket-success.png)
+- **3:** Keep default **SSE-S3** encryption and select **Create bucket**.
+![alt text](5-5-04.png)
 
-3. Navigate to: Services > VPC > Endpoints, then select the Gateway VPC endpoint you created earlier. Click the Policy tab. Click Edit policy.
+- **4:** The bucket is created, and the **Objects** list is empty.
+![alt text](5-5-05.png)
 
-![policy](/images/5-Workshop/5.5-Policy/policy1.png)
+- **5:** **Upload** page to upload the `index.html` file to the bucket (upload html file).
+![alt text](5-5-06.png)
 
-The default policy allows access to all S3 Buckets through the VPC endpoint.
+**Enable static website hosting**
+1. The bucket’s Properties tab shows the Region, ARN, and creation date.
+![alt text](5-5-07.png)
 
-4. In Edit Policy console, copy & Paste the following policy, then replace yourbucketname-2 with your 2nd bucket name. This policy will allow access through the VPC endpoint to your new bucket, but not any other bucket in Amazon S3. Click Save to apply the policy.
+2. The Static website hosting section is Disabled. Select Edit.
+![alt text](5-5-08.png)
 
-```
-{
-  "Id": "Policy1631305502445",
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "Stmt1631305501021",
-      "Action": "s3:*",
-      "Effect": "Allow",
-      "Resource": [
-      				"arn:aws:s3:::yourbucketname-2",
-       				"arn:aws:s3:::yourbucketname-2/*"
-       ],
-      "Principal": "*"
-    }
-  ]
-}
-```
+3. Enable static website hosting, select Host a static website, and set Index document to index.html.
 
-![custom policy](/images/5-Workshop/5.5-Policy/policy2.png)
+**Verification**
+The endpoint `[http://ai-legal-assistant-frontend-hau.s3-website-ap-southeast-2.amazonaws.com/](http://ai-legal-assistant-frontend-hau.s3-website-ap-southeast-2.amazonaws.com/)` loads the page.
 
-Successfully customize policy
+### 5.5.3 Connecting the API and End-to-End Testing
 
-![success](/static/images/5-Workshop/5.5-Policy/success.png)
+**Objective**
+Have the deployed page call the live backend.
 
-5. From your session on the Test-Gateway-Endpoint instance, test access to the S3 bucket you created in Part 1: Access S3 from VPC
-```
-aws s3 ls s3://<yourbucketname>
-```
+**Steps**
+1. Set the API URL in `index.html` and re-upload it.
+2. Open the website and ask a sample question.
+3. Open the browser console and verify there are no CORS errors.
+4. Check the request in **CloudWatch Logs**.
 
-This command will return an error because access to this bucket is not permitted by your new VPC endpoint policy:
+**Console Walkthrough Details**
+- **1:** **Properties** tab of the bucket, view Region, ARN, and creation date.
+- **2:** **Static website hosting** is **Disabled**, select **Edit**.
+- **3:** Enable **Static website hosting**, select **Host a static website**, and set **Index document** to `index.html`.
 
-![error](/static/images/5-Workshop/5.5-Policy/error.png)
-
-6. Return to your home directory on your EC2 instance ` cd~ `
-
-+ Create a file ```fallocate -l 1G test-bucket2.xyz ```
-+ Copy file to 2nd bucket ```aws s3 cp test-bucket2.xyz s3://<your-2nd-bucket-name>```
-
-![success](/static/images/5-Workshop/5.5-Policy/test2.png)
-
-This operation succeeds because it is permitted by the VPC endpoint policy.
-
-![success](/static/images/5-Workshop/5.5-Policy/test2-success.png)
-
-+ Then we test access to the first bucket by copy the file to 1st bucket `aws s3 cp test-bucket2.xyz s3://<your-1st-bucket-name>`
-
-![fail](/static/images/5-Workshop/5.5-Policy/test2-fail.png)
-
-This command will return an error because access to this bucket is not permitted by your new VPC endpoint policy.
-
-#### Part 3 Summary:
-
-In this section, you created a VPC endpoint policy for Amazon S3, and used the AWS CLI to test the policy. AWS CLI actions targeted to your original S3 bucket failed because you applied a policy that only allowed access to the second bucket you created. AWS CLI actions targeted for your second bucket succeeded because the policy allowed them. These policies can be useful in situations where you need to control access to resources through VPC endpoints.
-
-
+**Verification**
+Question → grounded answer on the page, accompanied by a corresponding log entry.

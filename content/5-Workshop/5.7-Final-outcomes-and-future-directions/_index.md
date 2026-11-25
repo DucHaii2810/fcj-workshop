@@ -1,32 +1,22 @@
 ---
-title : "Clean up"
+title : "Final Outcomes and Future Directions"
 date : 2024-01-01
 weight : 6
 chapter : false
 pre : " <b> 5.7 </b> "
 ---
-Congratulations on completing this workshop! 
-In this workshop, you learned architecture patterns for accessing Amazon S3 without using the Public Internet. 
-+ By creating a gateway endpoint, you enabled direct communication between EC2 resources and Amazon S3, without traversing an Internet Gateway. 
-+ By creating an interface endpoint you extended S3 connectivity to resources running in your on-premises data center via AWS Site-to-Site VPN or Direct Connect. 
+### Outcomes
+- A complete, auto-scaling serverless backend that, as noted by the team, costs $0 within the AWS Free Tier.
+- A working RAG pipeline: each request looks up legal articles from DynamoDB and pairs them with the LLM to produce grounded answers.
+- A stable API endpoint ready for the static website and for team members to test.
 
-#### clean up
-1. Navigate to Hosted Zones on the left side of Route 53 console. Click the name of *s3.us-east-1.amazonaws.com* zone. Click Delete and confirm deletion by typing delete. 
+### Known Limitations
+- Keyword lookup may miss relevant legal articles.
+- Responses are plain text; there is no structured risk level yet.
+- The LLM runs outside AWS and the API has no authentication yet.
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/delete-zone.png)
-
-2. Disassociate the Route 53 Resolver Rule - myS3Rule from "VPC Onprem" and Delete it. 
-
-![hosted zone](/images/5-Workshop/5.6-Cleanup/vpc.png)
-
-4. Open the CloudFormation console  and delete the two CloudFormation Stacks that you created for this lab:
-+ PLOnpremSetup
-+ PLCloudSetup
-
-![delete stack](/images/5-Workshop/5.6-Cleanup/delete-stack.png)
-
-5. Delete S3 buckets
-+ Open S3 console
-+ Choose the bucket we created for the lab, click and confirm empty. Click delete and confirm delete.
-
-![delete s3](/images/5-Workshop/5.6-Cleanup/delete-s3.png)
+### Future Directions
+- Structured responses with risk level (`Low` / `Medium` / `High` / `Insufficient evidence`), articles, evidence, and sources.
+- Human-confirmed incident reporting with email alerts via Amazon SNS (summary only, no sensitive data).
+- Conversation history in DynamoDB with TTL.
+- Evaluate Amazon Bedrock and Bedrock Knowledge Bases to keep all data within AWS (check current pricing and supported regions first).

@@ -21,7 +21,6 @@ The system is built on a serverless architecture with the following components:
 
 ![alt text](architecture.png)
 
-#### Content
 
 ### Contents
 

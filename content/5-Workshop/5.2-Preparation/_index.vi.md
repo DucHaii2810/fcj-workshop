@@ -6,237 +6,136 @@ chapter : false
 pre : " <b> 5.2. </b> "
 ---
 
-#### IAM permissions
-Gắn IAM permission policy sau vào tài khoản aws user của bạn để triển khai và dọn dẹp tài nguyên trong workshop này.
-```
+### Tài khoản AWS và region
+
+Toàn bộ tài nguyên tạo trong một region: `ap-southeast-2` (Asia Pacific – Sydney), theo URL của website. Bật MFA cho root và làm việc bằng IAM user, không dùng root.
+
+### IAM role cho Lambda
+
+Lambda chỉ cần hai quyền: đọc bảng `LegalArticles` và ghi log. Thay phần giữ chỗ bằng account ID và region của bạn.
+
+```json
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "VisualEditor0",
-            "Effect": "Allow",
-            "Action": [
-                "cloudformation:*",
-                "cloudwatch:*",
-                "ec2:AcceptTransitGatewayPeeringAttachment",
-                "ec2:AcceptTransitGatewayVpcAttachment",
-                "ec2:AllocateAddress",
-                "ec2:AssociateAddress",
-                "ec2:AssociateIamInstanceProfile",
-                "ec2:AssociateRouteTable",
-                "ec2:AssociateSubnetCidrBlock",
-                "ec2:AssociateTransitGatewayRouteTable",
-                "ec2:AssociateVpcCidrBlock",
-                "ec2:AttachInternetGateway",
-                "ec2:AttachNetworkInterface",
-                "ec2:AttachVolume",
-                "ec2:AttachVpnGateway",
-                "ec2:AuthorizeSecurityGroupEgress",
-                "ec2:AuthorizeSecurityGroupIngress",
-                "ec2:CreateClientVpnEndpoint",
-                "ec2:CreateClientVpnRoute",
-                "ec2:CreateCustomerGateway",
-                "ec2:CreateDhcpOptions",
-                "ec2:CreateFlowLogs",
-                "ec2:CreateInternetGateway",
-                "ec2:CreateLaunchTemplate",
-                "ec2:CreateNetworkAcl",
-                "ec2:CreateNetworkInterface",
-                "ec2:CreateNetworkInterfacePermission",
-                "ec2:CreateRoute",
-                "ec2:CreateRouteTable",
-                "ec2:CreateSecurityGroup",
-                "ec2:CreateSubnet",
-                "ec2:CreateSubnetCidrReservation",
-                "ec2:CreateTags",
-                "ec2:CreateTransitGateway",
-                "ec2:CreateTransitGatewayPeeringAttachment",
-                "ec2:CreateTransitGatewayPrefixListReference",
-                "ec2:CreateTransitGatewayRoute",
-                "ec2:CreateTransitGatewayRouteTable",
-                "ec2:CreateTransitGatewayVpcAttachment",
-                "ec2:CreateVpc",
-                "ec2:CreateVpcEndpoint",
-                "ec2:CreateVpcEndpointConnectionNotification",
-                "ec2:CreateVpcEndpointServiceConfiguration",
-                "ec2:CreateVpnConnection",
-                "ec2:CreateVpnConnectionRoute",
-                "ec2:CreateVpnGateway",
-                "ec2:DeleteCustomerGateway",
-                "ec2:DeleteFlowLogs",
-                "ec2:DeleteInternetGateway",
-                "ec2:DeleteNetworkInterface",
-                "ec2:DeleteNetworkInterfacePermission",
-                "ec2:DeleteRoute",
-                "ec2:DeleteRouteTable",
-                "ec2:DeleteSecurityGroup",
-                "ec2:DeleteSubnet",
-                "ec2:DeleteSubnetCidrReservation",
-                "ec2:DeleteTags",
-                "ec2:DeleteTransitGateway",
-                "ec2:DeleteTransitGatewayPeeringAttachment",
-                "ec2:DeleteTransitGatewayPrefixListReference",
-                "ec2:DeleteTransitGatewayRoute",
-                "ec2:DeleteTransitGatewayRouteTable",
-                "ec2:DeleteTransitGatewayVpcAttachment",
-                "ec2:DeleteVpc",
-                "ec2:DeleteVpcEndpoints",
-                "ec2:DeleteVpcEndpointServiceConfigurations",
-                "ec2:DeleteVpnConnection",
-                "ec2:DeleteVpnConnectionRoute",
-                "ec2:Describe*",
-                "ec2:DetachInternetGateway",
-                "ec2:DisassociateAddress",
-                "ec2:DisassociateRouteTable",
-                "ec2:GetLaunchTemplateData",
-                "ec2:GetTransitGatewayAttachmentPropagations",
-                "ec2:ModifyInstanceAttribute",
-                "ec2:ModifySecurityGroupRules",
-                "ec2:ModifyTransitGatewayVpcAttachment",
-                "ec2:ModifyVpcAttribute",
-                "ec2:ModifyVpcEndpoint",
-                "ec2:ReleaseAddress",
-                "ec2:ReplaceRoute",
-                "ec2:RevokeSecurityGroupEgress",
-                "ec2:RevokeSecurityGroupIngress",
-                "ec2:RunInstances",
-                "ec2:StartInstances",
-                "ec2:StopInstances",
-                "ec2:UpdateSecurityGroupRuleDescriptionsEgress",
-                "ec2:UpdateSecurityGroupRuleDescriptionsIngress",
-                "iam:AddRoleToInstanceProfile",
-                "iam:AttachRolePolicy",
-                "iam:CreateInstanceProfile",
-                "iam:CreatePolicy",
-                "iam:CreateRole",
-                "iam:DeleteInstanceProfile",
-                "iam:DeletePolicy",
-                "iam:DeleteRole",
-                "iam:DeleteRolePolicy",
-                "iam:DetachRolePolicy",
-                "iam:GetInstanceProfile",
-                "iam:GetPolicy",
-                "iam:GetRole",
-                "iam:GetRolePolicy",
-                "iam:ListPolicyVersions",
-                "iam:ListRoles",
-                "iam:PassRole",
-                "iam:PutRolePolicy",
-                "iam:RemoveRoleFromInstanceProfile",
-                "lambda:CreateFunction",
-                "lambda:DeleteFunction",
-                "lambda:DeleteLayerVersion",
-                "lambda:GetFunction",
-                "lambda:GetLayerVersion",
-                "lambda:InvokeFunction",
-                "lambda:PublishLayerVersion",
-                "logs:CreateLogGroup",
-                "logs:DeleteLogGroup",
-                "logs:DescribeLogGroups",
-                "logs:PutRetentionPolicy",
-                "route53:ChangeTagsForResource",
-                "route53:CreateHealthCheck",
-                "route53:CreateHostedZone",
-                "route53:CreateTrafficPolicy",
-                "route53:DeleteHostedZone",
-                "route53:DisassociateVPCFromHostedZone",
-                "route53:GetHostedZone",
-                "route53:ListHostedZones",
-                "route53domains:ListDomains",
-                "route53domains:ListOperations",
-                "route53domains:ListTagsForDomain",
-                "route53resolver:AssociateResolverEndpointIpAddress",
-                "route53resolver:AssociateResolverRule",
-                "route53resolver:CreateResolverEndpoint",
-                "route53resolver:CreateResolverRule",
-                "route53resolver:DeleteResolverEndpoint",
-                "route53resolver:DeleteResolverRule",
-                "route53resolver:DisassociateResolverEndpointIpAddress",
-                "route53resolver:DisassociateResolverRule",
-                "route53resolver:GetResolverEndpoint",
-                "route53resolver:GetResolverRule",
-                "route53resolver:ListResolverEndpointIpAddresses",
-                "route53resolver:ListResolverEndpoints",
-                "route53resolver:ListResolverRuleAssociations",
-                "route53resolver:ListResolverRules",
-                "route53resolver:ListTagsForResource",
-                "route53resolver:UpdateResolverEndpoint",
-                "route53resolver:UpdateResolverRule",
-                "s3:AbortMultipartUpload",
-                "s3:CreateBucket",
-                "s3:DeleteBucket",
-                "s3:DeleteObject",
-                "s3:GetAccountPublicAccessBlock",
-                "s3:GetBucketAcl",
-                "s3:GetBucketOwnershipControls",
-                "s3:GetBucketPolicy",
-                "s3:GetBucketPolicyStatus",
-                "s3:GetBucketPublicAccessBlock",
-                "s3:GetObject",
-                "s3:GetObjectVersion",
-                "s3:GetBucketVersioning",
-                "s3:ListAccessPoints",
-                "s3:ListAccessPointsForObjectLambda",
-                "s3:ListAllMyBuckets",
-                "s3:ListBucket",
-                "s3:ListBucketMultipartUploads",
-                "s3:ListBucketVersions",
-                "s3:ListJobs",
-                "s3:ListMultipartUploadParts",
-                "s3:ListMultiRegionAccessPoints",
-                "s3:ListStorageLensConfigurations",
-                "s3:PutAccountPublicAccessBlock",
-                "s3:PutBucketAcl",
-                "s3:PutBucketPolicy",
-                "s3:PutBucketPublicAccessBlock",
-                "s3:PutObject",
-                "secretsmanager:CreateSecret",
-                "secretsmanager:DeleteSecret",
-                "secretsmanager:DescribeSecret",
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:ListSecrets",
-                "secretsmanager:ListSecretVersionIds",
-                "secretsmanager:PutResourcePolicy",
-                "secretsmanager:TagResource",
-                "secretsmanager:UpdateSecret",
-                "sns:ListTopics",
-                "ssm:DescribeInstanceProperties",
-                "ssm:DescribeSessions",
-                "ssm:GetConnectionStatus",
-                "ssm:GetParameters",
-                "ssm:ListAssociations",
-                "ssm:ResumeSession",
-                "ssm:StartSession",
-                "ssm:TerminateSession"
-            ],
-            "Resource": "*"
-        }
-    ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadLegalArticles",
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:Scan",
+        "dynamodb:Query",
+        "dynamodb:GetItem"
+      ],
+      "Resource": "arn:aws:dynamodb:ap-southeast-2:<ACCOUNT_ID>:table/LegalArticles"
+    },
+    {
+      "Sid": "CreateLogGroup",
+      "Effect": "Allow",
+      "Action": "logs:CreateLogGroup",
+      "Resource": "arn:aws:logs:ap-southeast-2:<ACCOUNT_ID>:*"
+    },
+    {
+      "Sid": "WriteLogs",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:ap-southeast-2:<ACCOUNT_ID>:log-group:/aws/lambda/legal-ai-chat-lambda:*"
+    }
+  ]
 }
-
 ```
 
-#### Khởi tạo tài nguyên bằng CloudFormation
+Gắn thêm managed policy `AWSLambdaBasicExecutionRole` để Lambda ghi được log vào CloudWatch.
 
-Trong lab này, chúng ta sẽ dùng N.Virginia region (us-east-1).
+![alt text](5-2-01.png)
 
-Để chuẩn bị cho môi trường làm workshop, chúng ta deploy CloudFormation template sau (click link): [PrivateLinkWorkshop ](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.us-east-1.amazonaws.com/reinvent-endpoints-builders-session/Nested.yaml&stackName=PLCloudSetup). Để nguyên các lựa chọn mặc định.
+### Tài khoản Groq và API key
 
-![create stack](/images/5-Workshop/5.2-Prerequisite/create-stack1.png)
+Tạo API Key trên Groq và chọn model trong Playground.
 
-+ Lựa chọn 2 mục acknowledgement 
-+ Chọn Create stack
+#### Tạo tài khoản và truy cập Groq Console
+1. Truy cập `console.groq.com` và đăng nhập (hoặc đăng ký tài khoản mới).
+2. Khi đăng nhập, sẽ thấy trang Dashboard của Groq Console.
 
-![create stack](/images/5-Workshop/5.2-Prerequisite/create-stack2.png)
+![alt text](5-2-02.png)
 
-Quá trình triển khai CloudFormation cần khoảng 15 phút để hoàn thành.
+#### Trang Dashboard Groq
+- Có thể xem lượng **Token Usage** trong 30 ngày gần nhất.
+- Các lối tắt **Playground**, **Docs**, **Manage Team** giúp chat thử với model, xem tài liệu và quản lý thành viên.
+- Ở thanh menu phía trên bên phải, chọn **API Keys** để chuyển sang trang quản lý key.
 
-![complete](/images/5-Workshop/5.2-Prerequisite/complete.png)
+#### Tạo API Key
 
-+ 2 VPCs đã được tạo
+1. Tại trang **API Keys**, bạn sẽ thấy danh sách key của dự án. Vì chưa tạo key nào nên bảng đang hiển thị `(No keys)`.
+2. Chọn **Create API Key** ở góc phải.
+3. Trong hộp thoại **Create API Key**:
+   - **Display Name**: đặt tên gợi nhớ cho key, tối đa 50 ký tự.
+   - **Expiration**: chọn thời hạn của key.
+4. Chọn **Submit**.
 
-![vpcs](/images/5-Workshop/5.2-Prerequisite/vpcs.png)
+![alt text](5-2-03.png)
+5. Hệ thống hiển thị API key dạng `gsk…..`:
+   ![alt text](5-2-04.png) 
+   - Chọn **Copy** để sao chép key.
+   - Lưu ý: key chỉ hiển thị một lần duy nhất. Hãy lưu ngay vào nơi an toàn, vì sau khi đóng cửa sổ sẽ không xem lại được.
+   - Chọn **Done** để hoàn tất.
 
-+ 3 EC2s đã được tạo
+#### Chọn model trong Playground
+![alt text](5-2-05.png)
 
-![EC2](/images/5-Workshop/5.2-Prerequisite/ec2.png)
+1. Trên thanh menu, chọn **Playground**.
+2. Ở ô chọn model phía trên, chọn model muốn dùng. Trong bài này là `qwen/qwen3.8-27b`.
+3. Chọn **View code** (khi đang mở sẽ hiển thị **Hide code**) để xem đoạn code mẫu gọi API cho đúng model đang chọn.
+
+### Danh mục tài nguyên
+
+| Tài nguyên | Tên | Ghi chú |
+| --- | --- | --- |
+| S3 bucket | `ai-legal-assistant-frontend-hau` | Static website hosting |
+| DynamoDB | `LegalArticles` | Cơ sở tri thức |
+| Lambda | Hàm Lambda: `legal-ai-chat-lambda` | Python |
+| API Gateway | API: `LegalChatAPI` | Endpoint công khai cho website gọi |
+
+### Cảnh báo chi phí
+
+Tạo AWS Budget có cảnh báo email trước khi xây bất cứ thứ gì. Mục tiêu dự án là `$0` trong Free Tier; cảnh báo giúp phát hiện bất thường.
+
+#### Mở trang Budgets
+1. Trong AWS Management Console, gõ `Billing and Cost Management` vào ô tìm kiếm và nhấn **Enter**.
+2. Ở menu bên trái, chọn **Budgets**.
+
+#### Trang Budgets đang trống
+![alt text](5-2-06.png)
+
+- Bảng hiển thị `No budgets`, nghĩa là tài khoản chưa có cảnh báo chi phí nào.
+- Chọn **Create budget** ở góc phải.
+
+#### Chọn loại budget
+1. Ở trang **Choose budget type**:
+   - **Budget setup**: chọn **Use a template (simplified)** (dùng cấu hình khuyến nghị có sẵn). Tùy chọn **Customize (advanced)** cho phép chỉnh chi tiết hơn nhưng không cần thiết ở đây.
+![alt text](5-2-07.png)
+
+   - **Templates**: chọn **Zero spend budget**, tức là báo cho bạn ngay khi chi tiêu vượt `$0.01`. Các template khác (**Monthly cost budget**, **Savings Plans**, **Reservation**) không phù hợp với mục tiêu `$0`.
+   - **Billing View** là tùy chọn, bỏ qua.
+   - Kéo xuống cuối trang và chọn **Next**.
+
+#### Đặt tên và email nhận cảnh báo
+1. Ở trang **Zero spend budget - Template**:
+   - **Budget name**: giữ tên mặc định `My Zero-Spend Budget` hoặc đặt tên gợi nhớ hơn, ví dụ `LegalRAG-Zero-Spend`.
+   - **Email recipients**: nhập email nhận cảnh báo, nhiều email cách nhau bằng dấu phẩy (tối đa 10). Nếu đang báo đỏ `Enter a valid email address` vì ô còn trống, hãy nhập email thật của bạn để hết lỗi.
+   - **Scope**: `All AWS services`, áp dụng cho toàn bộ dịch vụ trong tài khoản.
+   - Hệ thống ghi rõ: bạn sẽ nhận email khi có bất kỳ khoản chi nào trên `$0.01`.
+   - Template settings giữ mặc định (có thể chỉnh sau).
+   - Chọn **Create budget**.
+   ![alt text](5-2-08.png)
+
+2. Budget đã được tạo thành công và đang ở trạng thái **Healthy**:
+   - Thông báo `Your budget My Zero-Spend Budget has been created successfully`.
+   - Danh sách **Budgets (1)** hiển thị budget mới với **Thresholds: OK** và **Health status: Healthy**, nghĩa là hiện chưa có chi phí nào vượt ngưỡng.
+   - Cột **Budget** là `$1.00`, đây là mức nền của template (ngưỡng cảnh báo vẫn là `$0.01`).
+
+### Tài liệu pháp luật
+
+Nguồn: **Nghị định 13/2023/NĐ-CP**. Trước khi demo, kiểm tra văn bản nào đang có hiệu lực và có luật mới sửa đổi hoặc thay thế một phần nghị định hay không.

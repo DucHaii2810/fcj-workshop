@@ -1,95 +1,91 @@
 ---
-title : "VPC Endpoint Policies"
+title : "Frontend – S3 Static Website"
 date : 2024-01-01
 weight : 5
 chapter : false
 pre : " <b> 5.5 </b> "
 ---
 
-Khi bạn tạo một Interface Endpoint  hoặc cổng, bạn có thể đính kèm một chính sách điểm cuối để kiểm soát quyền truy cập vào dịch vụ mà bạn đang kết nối. Chính sách VPC Endpoint là chính sách tài nguyên IAM mà bạn đính kèm vào điểm cuối. Nếu bạn không đính kèm chính sách khi tạo điểm cuối, thì AWS sẽ đính kèm chính sách mặc định cho bạn để cho phép toàn quyền truy cập vào dịch vụ thông qua điểm cuối.
+### Tổng quan
 
-Bạn có thể tạo chính sách chỉ hạn chế quyền truy cập vào các S3 bucket cụ thể. Điều này hữu ích nếu bạn chỉ muốn một số Bộ chứa S3 nhất định có thể truy cập được thông qua điểm cuối.
+| Mục | Nội dung |
+| --- | --- |
+| **Mục đích** | Trang chat để người dùng đặt câu hỏi và đọc câu trả lời. |
+| **Dịch vụ AWS** | Amazon S3 (static website hosting) |
+| **Đầu vào** | Câu hỏi người dùng |
+| **Đầu ra** | Câu trả lời hiển thị trong khung chat |
+| **Phụ thuộc** | URL của Backend API |
 
-Trong phần này, bạn sẽ tạo chính sách VPC Endpoint hạn chế quyền truy cập vào S3 bucket được chỉ định trong chính sách VPC Endpoint.
+### 5.5.1 Dựng giao diện chat (index.html)
 
-![endpoint diagram](/images/5-Workshop/5.5-Policy/s3-bucket-policy.png)
+**Mục tiêu**
+Một trang tĩnh duy nhất gọi backend bằng `fetch`.
 
-#### Kết nối tới EC2 và xác minh kết nối tới S3. 
+**Các bước**
+1. Dựng bố cục chat: tiêu đề, badge trạng thái, lời chào, danh sách tin nhắn, ô nhập và nút gửi.
+2. Khi gửi, gọi `fetch` bằng HTTP `POST` tới URL API và hiển thị trạng thái đang xử lý.
+3. Hiển thị thông báo rõ ràng cho các lỗi (`400`, `429`, `502`/`504`).
+4. Khuyến nghị: thêm disclaimer hiển thị rằng câu trả lời là sơ bộ, không phải tư vấn pháp lý.
+![alt text](5-5-01.png)
 
-1. Bắt đầu một phiên AWS Session Manager mới trên máy chủ có tên là Test-Gateway-Endpoint. Từ phiên này, xác minh rằng bạn có thể liệt kê nội dung của bucket mà bạn đã tạo trong Phần 1: Truy cập S3 từ VPC.
+**Kiểm tra**
+Mở `index.html` trên máy thấy trang chat và lời chào.
 
-```
-aws s3 ls s3://<your-bucket-name>
-```
-![test](/images/5-Workshop/5.5-Policy/test1.png)
+### 5.5.2 Host trang trên S3
 
-Nội dung của bucket bao gồm hai tệp có dung lượng 1GB đã được tải lên trước đó.
+**Mục tiêu**
+Công khai `index.html` dưới dạng static website.
 
-2. Tạo một bucket S3 mới; tuân thủ mẫu đặt tên mà bạn đã sử dụng trong Phần 1, nhưng thêm '-2' vào tên. Để các trường khác là mặc định và nhấp vào **Create**.
+**Các bước**
+1. Tạo bucket `ai-legal-assistant-frontend-hau` ở `ap-southeast-2`.
+2. Tải `index.html` lên.
+3. Bật **Static website hosting** với `index.html` làm index document.
+4. Cho phép đọc công khai riêng bucket này (tắt **Block Public Access** cho nó và thêm bucket policy chỉ đọc).
+5. Mở website endpoint.
 
-![create bucket](/images/5-Workshop/5.5-Policy/create-bucket.png)
+**Chi tiết thao tác trên Console**
+- **1:** Tạo bucket S3 ở region `ap-southeast-2`, loại **General purpose**, đặt tên bucket.
+![alt text](5-5-02.png)
 
-3. Tạo bucket thành công.
+- **2:** Bỏ chọn **Block all public access** cho riêng bucket này và xác nhận cảnh báo.
+![alt text](5-5-03.png)
 
-![Success](/images/5-Workshop/5.5-Policy/create-bucket-success.png)
+- **3:** Giữ mã hóa mặc định **SSE-S3** và chọn **Create bucket**.
+![alt text](5-5-04.png)
 
-Policy mặc định cho phép truy cập vào tất cả các S3 Buckets thông qua VPC endpoint.
+- **4:** Bucket đã được tạo, danh sách **Objects** đang trống.
+![alt text](5-5-05.png)
 
-4. Trong giao diện **Edit Policy**, sao chép và dán theo policy sau, thay thế yourbucketname-2 với tên bucket thứ hai của bạn. Policy này sẽ cho phép truy cập đến bucket mới thông qua VPC endpoint, nhưng không cho phép truy cập đến các bucket còn lại. Chọn **Save** để kích hoạt policy.
+- **5:** Trang **Upload** để tải file `index.html` lên bucket (upload file html).
+![alt text](5-5-06.png)
 
+**Bật tính năng lưu trữ trang web tĩnh (Enable static website hosting)**
+1. Tab **Properties** của bucket hiển thị thông tin Region, ARN và ngày tạo.
+![alt text](5-5-07.png)
 
-```
-{
-  "Id": "Policy1631305502445",
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "Stmt1631305501021",
-      "Action": "s3:*",
-      "Effect": "Allow",
-      "Resource": [
-      				"arn:aws:s3:::yourbucketname-2",
-       				"arn:aws:s3:::yourbucketname-2/*"
-       ],
-      "Principal": "*"
-    }
-  ]
-}
-```
+2. Mục **Static website hosting** đang ở trạng thái **Disabled**. Chọn **Edit**.
+![alt text](5-5-08.png)
 
-![custom policy](/images/5-Workshop/5.5-Policy/policy2.png)
+3. Bật **Static website hosting**, chọn **Host a static website** và đặt **Index document** là `index.html`.
 
-Cấu hình policy thành công.
+**Kiểm tra**
+Endpoint `[http://ai-legal-assistant-frontend-hau.s3-website-ap-southeast-2.amazonaws.com/](http://ai-legal-assistant-frontend-hau.s3-website-ap-southeast-2.amazonaws.com/)` mở được trang.
 
-![success](/images/5-Workshop/5.5-Policy/success.png)
+### 5.5.3 Nối API và test end-to-end
 
-5. Từ session của bạn trên Test-Gateway-Endpoint instance, kiểm tra truy cập đến S3 bucket bạn tạo ở bước đầu
+**Mục tiêu**
+Cho trang đã deploy gọi backend thật.
 
-```
-aws s3 ls s3://<yourbucketname>
-```
+**Các bước**
+1. Đặt URL gọi API trong `index.html` và tải lại lên.
+2. Mở website và hỏi câu hỏi mẫu.
+3. Mở console của trình duyệt và kiểm tra không có lỗi CORS.
+4. Kiểm tra request trong **CloudWatch Logs**.
 
-Câu lệnh trả về lỗi bởi vì truy cập vào S3 bucket không có quyền trong VPC endpoint policy.
+**Chi tiết thao tác trên Console**
+- **1:** Tab **Properties** của bucket, xem thông tin Region, ARN và ngày tạo.
+- **2:** Mục **Static website hosting** đang ở trạng thái **Disabled**, chọn **Edit**.
+- **3:** Bật **Static website hosting**, chọn **Host a static website** và đặt **Index document** là `index.html`.
 
-![error](/images/5-Workshop/5.5-Policy/error.png)
-
-6. Trở lại home directory của bạn trên EC2 instance ```cd~```
-
-+ Tạo file ```fallocate -l 1G test-bucket2.xyz ```
-+ Sao chép file lên bucket thứ  2 ```aws s3 cp test-bucket2.xyz s3://<your-2nd-bucket-name>```
-
-![success](/images/5-Workshop/5.5-Policy/test2.png)
-
-Thao tác này được cho phép bởi VPC endpoint policy.
-
-![success](/images/5-Workshop/5.5-Policy/test2-success.png)
-
-Sau đó chúng ta kiểm tra truy cập vào S3 bucket đầu tiên
-
- ```aws s3 cp test-bucket2.xyz s3://<your-1st-bucket-name>```
-
- ![fail](/images/5-Workshop/5.5-Policy/test2-fail.png)
-
- Câu lệnh xảy ra lỗi bởi vì bucket không có quyền truy cập bởi VPC endpoint policy.
-
-Trong phần này, bạn đã tạo chính sách VPC Endpoint cho Amazon S3 và sử dụng AWS CLI để kiểm tra chính sách. Các hoạt động AWS CLI liên quan đến bucket S3 ban đầu của bạn thất bại vì bạn áp dụng một chính sách chỉ cho phép truy cập đến bucket thứ hai mà bạn đã tạo. Các hoạt động AWS CLI nhắm vào bucket thứ hai của bạn thành công vì chính sách cho phép chúng. Những chính sách này có thể hữu ích trong các tình huống khi bạn cần kiểm soát quyền truy cập vào tài nguyên thông qua VPC Endpoint.
+**Kiểm tra**
+Câu hỏi → câu trả lời có căn cứ trên trang, kèm một dòng log tương ứng.

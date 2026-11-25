@@ -5,28 +5,25 @@ weight : 6
 chapter : false
 pre : " <b> 5.8. </b> "
 ---
-Congratulations on completing this workshop! 
-In this workshop, you learned architecture patterns for accessing Amazon S3 without using the Public Internet. 
-+ By creating a gateway endpoint, you enabled direct communication between EC2 resources and Amazon S3, without traversing an Internet Gateway. 
-+ By creating an interface endpoint you extended S3 connectivity to resources running in your on-premises data center via AWS Site-to-Site VPN or Direct Connect. 
+### Resource Cleanup Order
 
-#### clean up
-1. Navigate to Hosted Zones on the left side of Route 53 console. Click the name of *s3.us-east-1.amazonaws.com* zone. Click Delete and confirm deletion by typing delete. 
+Delete resources in the following order to avoid dependency errors and unexpected charges:
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/delete-zone.png)
+1. S3 bucket (`ai-legal-assistant-frontend-hau`)
+![alt text](5-8-01.png)
 
-2. Disassociate the Route 53 Resolver Rule - myS3Rule from "VPC Onprem" and Delete it. 
+2. API in API Gateway (`LegalChatAPI`)
+![alt text](5-8-02.png)
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/vpc.png)
+3. Lambda function (`legal-ai-chat-lambda`) and its CloudWatch log group
+![alt text](5-8-03.png)
+![alt text](5-8-04.png)
 
-4. Open the CloudFormation console  and delete the two CloudFormation Stacks that you created for this lab:
-+ PLOnpremSetup
-+ PLCloudSetup
+4. DynamoDB table `LegalArticles`
+![alt text](5-8-05.png)
 
-![delete stack](/images/5-Workshop/5.6-Cleanup/delete-stack.png)
+5. IAM role created for Lambda (`legal-ai-chat-role`)
+![alt text](5-8-06.png)
 
-5. Delete S3 buckets
-+ Open S3 console
-+ Choose the bucket we created for the lab, click and confirm empty. Click delete and confirm delete.
-
-![delete s3](/images/5-Workshop/5.6-Cleanup/delete-s3.png)
+6. Revoke the Groq API key in Groq Console 
+![alt text](5-8-07.png)
