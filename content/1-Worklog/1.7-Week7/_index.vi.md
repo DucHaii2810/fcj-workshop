@@ -3,7 +3,7 @@ title: "Worklog Tuần 7"
 date: 2026-10-27
 weight: 1
 chapter: false
-pre: " <b> 1.7. </b> "
+pre: " <b> 1.7 </b> "
 ---
 ### Mục tiêu tuần 7:
 

@@ -5,27 +5,31 @@ weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+### Overview
 
-# Secure Hybrid Access to S3 using VPC Endpoints
+**AI Legal & Security Assistant** is a preliminary legal advisory assistant for enterprises, focusing on Decree 13/2023/ND-CP (personal data protection). Users enter a question or a real-world scenario; the system retrieves relevant legal articles from the database, and then a large language model analyzes the question based strictly on those articles.
 
-#### Overview
+The system is not a lawyer and does not provide official legal conclusions. If the database lacks legal basis, the system must clearly state so.
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+The system is built on a serverless architecture with the following components:
+- **Frontend** – static website (`index.html`) hosted on Amazon S3 (static website hosting)
+- **API Gateway** – Amazon API Gateway (CORS and error standardization)
+- **Backend** – AWS Lambda (Python): retrieves legal articles and calls the LLM
+- **Knowledge Base** – Amazon DynamoDB (`LegalArticles` table)
+- **LLM** – Groq API (`qwen/qwen3.8-27b`), an external service outside AWS
+- **Monitoring** – Amazon CloudWatch
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
-
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+![alt text](architecture.png)
 
 #### Content
 
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
-6. [Clean up](5.6-Cleanup/)
+### Contents
+
+1. [5.1 Introduction](#5.1-Introduction)
+2. [5.2 Preparation](#5.2-Preparation)
+3. [5.3 Phase 1 – Prompt Setup & RAG Mechanism](#5.3-Phase-1--prompt-setup--rag-mechanism)
+4. [5.4 Phase 2 – Backend: From Database to Lambda & API](#5.4-Phase-2--backend-from-database-to-lambda--api)
+5. [5.5 Frontend – S3 Static Website](#5.5-Frontend--s3-static-website)
+6. [5.6 Security & Operations](#5.6-Security--operations)
+7. [5.7 Final Outcomes and Future Directions](#5.7-Final-outcomes-and-future-directions)
+8. [5.8 Resource Cleanup](#5.8-Resource-cleanup)

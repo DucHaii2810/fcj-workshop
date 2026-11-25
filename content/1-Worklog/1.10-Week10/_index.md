@@ -3,7 +3,7 @@ title: "Week 10 Worklog"
 date: 2026-11-16
 weight: 2
 chapter: false
-pre: " <b> 1.10. </b> "
+pre: " <b> 1.10 </b> "
 ---
 ### Week 10 Objectives:
 

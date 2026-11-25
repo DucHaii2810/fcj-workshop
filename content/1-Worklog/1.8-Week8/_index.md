@@ -3,7 +3,7 @@ title: "Week 8 Worklog"
 date: 2026-11-02
 weight: 1
 chapter: false
-pre: " <b> 1.8. </b> "
+pre: " <b> 1.8 </b> "
 ---
 ### Week 8 Objectives:
 
