@@ -23,11 +23,11 @@ Hệ thống xây dựng trên kiến trúc serverless với các thành phần:
 
 #### Nội dung
 
-1. [5.1 Giới thiệu](#5.1-introduction)
-2. [5.2 Chuẩn bị](#5.2-preparation)
-3. [5.3 Giai đoạn 1 – Thiết lập Prompt & cơ chế RAG](#5.3-phase-1--prompt-setup--rag-mechanism)
-4. [5.4 Giai đoạn 2 – Backend: từ Database đến Lambda & API](#5.4-phase-2--backend-from-database-to-lambda--api)
-5. [5.5 Frontend – S3 Static Website](#5.5-frontend--s3-static-website)
-6. [5.6 Bảo mật & vận hành](#5.6-security--operations)
-7. [5.7 Thành quả cuối cùng và hướng phát triển](#5.7-final-outcomes-and-future-directions)
-8. [5.8 Dọn dẹp tài nguyên](#5.8-resource-cleanup)
+1. [5.1 Giới thiệu](5.1-introduction/)
+2. [5.2 Chuẩn bị](5.2-preparation/)
+3. [5.3 Giai đoạn 1 – Thiết lập Prompt & cơ chế RAG](5.3-phase-1--prompt-setup--rag-mechanism/)
+4. [5.4 Giai đoạn 2 – Backend: từ Database đến Lambda & API](5.4-phase-2--backend-from-database-to-lambda--api/)
+5. [5.5 Frontend – S3 Static Website](5.5-frontend--s3-static-website/)
+6. [5.6 Bảo mật & vận hành](5.6-security--operations/)
+7. [5.7 Thành quả cuối cùng và hướng phát triển](5.7-final-outcomes-and-future-directions/)
+8. [5.8 Dọn dẹp tài nguyên](5.8-resource-cleanup/)

@@ -24,11 +24,11 @@ The system is built on a serverless architecture with the following components:
 
 ### Contents
 
-1. [5.1 Introduction](#5.1-Introduction)
-2. [5.2 Preparation](#5.2-Preparation)
-3. [5.3 Phase 1 – Prompt Setup & RAG Mechanism](#5.3-Phase-1--prompt-setup--rag-mechanism)
-4. [5.4 Phase 2 – Backend: From Database to Lambda & API](#5.4-Phase-2--backend-from-database-to-lambda--api)
-5. [5.5 Frontend – S3 Static Website](#5.5-Frontend--s3-static-website)
-6. [5.6 Security & Operations](#5.6-Security--operations)
-7. [5.7 Final Outcomes and Future Directions](#5.7-Final-outcomes-and-future-directions)
-8. [5.8 Resource Cleanup](#5.8-Resource-cleanup)
+1. [5.1 Introduction](5.1-introduction/)
+2. [5.2 Preparation](5.2-preparation/)
+3. [5.3 Phase 1 – Prompt Setup & RAG Mechanism](5.3-phase-1--prompt-setup--rag-mechanism/)
+4. [5.4 Phase 2 – Backend: From Database to Lambda & API](5.4-phase-2--backend-from-database-to-lambda--api/)
+5. [5.5 Frontend – S3 Static Website](5.5-frontend--s3-static-website/)
+6. [5.6 Security & Operations](5.6-security--operations/)
+7. [5.7 Final Outcomes and Future Directions](5.7-final-outcomes-and-future-directions/)
+8. [5.8 Resource Cleanup](5.8-resource-cleanup/)
