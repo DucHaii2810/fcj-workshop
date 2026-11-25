@@ -1,7 +1,7 @@
 ---
 title : "Thành quả cuối cùng và hướng phát triển"
-date : 2024-01-01
-weight : 6
+date : 2026-11-23
+weight : 7
 chapter : false
 pre : " <b> 5.7 </b> "
 ---

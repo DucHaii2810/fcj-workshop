@@ -1,47 +1,48 @@
 ---
 title: "Sharing and Feedback"
-date: 2024-01-01
+date: 2026-11-26
 weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
-> Here, you can freely share your personal opinions about your experience participating in the First Cloud AI Journey program. This will help the FCAJ team improve any shortcomings based on the following aspects:
-
 ### Overall Evaluation
 
-**1. Working Environment**  
-The working environment is very friendly and open. FCAJ members are always willing to help whenever I encounter difficulties, even outside working hours. The workspace is tidy and comfortable, helping me focus better. However, I think it would be nice to have more social gatherings or team bonding activities to strengthen relationships.
+1. **Work Environment**
 
-**2. Support from Mentor / Team Admin**  
-The mentor provides very detailed guidance, explains clearly when I don’t understand, and always encourages me to ask questions. The admin team supports administrative tasks, provides necessary documents, and creates favorable conditions for me to work effectively. I especially appreciate that the mentor allows me to try and solve problems myself instead of just giving the answer.
+   The FCAJ environment is friendly and open. I can ask questions anytime—within my team as well as with mentors—and usually get responses fairly quickly. The combination of guided learning and self-paced hands-on practice helps me manage my schedule proactively. One area for improvement would be organizing a few more cross-team networking sessions so everyone can get to know each other better.
 
-**3. Relevance of Work to Academic Major**  
-The tasks I was assigned align well with the knowledge I learned at university, while also introducing me to new areas I had never encountered before. This allowed me to both strengthen my foundational knowledge and gain practical skills.
+2. **Support from Mentors / Admin Team**
 
-**4. Learning & Skill Development Opportunities**  
-During the internship, I learned many new skills such as using project management tools, teamwork skills, and professional communication in a corporate environment. The mentor also shared valuable real-world experiences that helped me better plan my career path.
+   Mentors give concrete feedback on our Proposal and Workshop, pointing out areas that need adjustment such as architecture or cost estimation. I really appreciate that mentors let the team try and debug on our own first before suggesting a direction. The admin team provides clear, timely updates on schedules, events, and submission guidelines, helping me stay on top of each week's requirements.
 
-**5. Company Culture & Team Spirit**  
-The company culture is very positive: everyone respects each other, works seriously but still keeps things enjoyable. When there are urgent projects, everyone works together and supports one another regardless of their position. This made me feel like a real part of the team, even as an intern.
+3. **Alignment Between Work and Academic Major**
 
-**6. Internship Policies / Benefits**  
-The company provides an internship allowance and offers flexible working hours when needed. In addition, having the opportunity to join internal training sessions is a big plus.
+   The work aligns well with my university background in programming, databases, and networking. In addition, I was exposed to new areas: AWS services, serverless architecture, and working with an LLM inside a real application. This made the gap between theoretical knowledge and practical implementation much clearer.
 
----
+4. **Learning Opportunities & Skill Development**
 
-### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
+   I learned how to select and combine AWS services while weighing cost, security, and operability. I also gained skills in reading logs to troubleshoot issues, testing APIs, writing technical documentation, and collaborating in a team. Talkshows, Cloud Day, and Fireside Chats helped broaden my perspective on career paths in the industry.
 
----
+5. **Culture & Team Spirit**
 
-### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+   Everyone respects one another, working seriously without unnecessary pressure. When tricky bugs come up, teammates are willing to sit down and debug together rather than leaving one person to handle it alone. I feel like a genuine part of the team rather than someone just executing assigned tasks.
+
+6. **Intern Policies / Benefits**
+
+   I had flexible learning conditions and could join high-value program events and sharing sessions. AWS Free Tier resources and cost-control guides were also very helpful for newcomers.
+
+#### Additional Questions
+
+- **What are you most satisfied with during your internship?**
+  I am most satisfied with building a working product end-to-end on my own—from choosing the architecture and writing the backend to testing and cleaning up resources. Previously, I had only worked on standalone labs.
+- **What do you think the program should improve for future interns?**
+  There should be additional guides or short sessions on AWS cost management and resource naming/organization right from the start. I would also like a few mid-term review sessions so teams can verify early whether they are on the right track.
+- **If recommending to friends, would you advise them to intern here? Why?**
+  Yes. The program gives you hands-on AWS experience on a real project, with mentors guiding you and a team building alongside you. The main requirement is being proactive in learning and dedicating consistent time each week.
+
+#### Suggestions & Expectations
+
+- **Suggestions to improve the experience:** Share strong Proposal and Workshop examples from previous cohorts earlier, and hold a few small-group technical Q&A sessions.
+- **Would you like to continue with the program in the future?** Yes, I would like to dive deeper into security and infrastructure on AWS.
+- **Other feedback:** Thank you to all the mentors, the admin team, and my teammates for the support throughout this journey. I learned much more than I initially expected.
