@@ -17,7 +17,7 @@ chapter: false
 
 &emsp; **Ngành:** An toàn thông tin
 
-&emsp; **Lớp:** AWS092026
+&emsp; **Lớp:** FCAJ - FPT - Season 4
 
 &emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Viet Nam
 
@@ -25,7 +25,7 @@ chapter: false
 
 &emsp; **Thời gian thực tập:** Từ ngày 14/09/2026 đến ngày 14/12/2026
 
-![Ảnh đại diện của bạn](/images/avatar.png)
+![alt text](avatar.jpg)
 
 
 
